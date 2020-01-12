@@ -1,10 +1,20 @@
+<img width="460" alt="die HausWirtschaft Logo" src="https://tools.diehauswirtschaft.at/public-static-files/logos/dhw-signet-logotype.png">
+
 # provision-nextcloud
 
-Batch imports and manages users for Nextcloud using the Provisioning API.
+Batch imports and manages users for Nextcloud using the Provisioning API. This is an alternative to the well-known
+[Registration App](https://apps.nextcloud.com/apps/registration) for Nextcloud. If you cannot limit the
+allowed registrations to a specific domain-suffix, you open it up to the whole Web. In times of automated scripts scanning
+the Web for open instances, this is not the best idea.
 
-This project has been developed for [OPENhauswirtschaft][1] to provision Nextcloud accounts to all members.
+<hr>
+
+This project has been developed in the scope of [OPENhauswirtschaft][1]
+to provision Nextcloud accounts to all members.
 OPENhauswirtschaft is powered by the Austrian ["Klima- und Energiefonds"][2]'s
 *[Smart Cities Demo - Living Urban Innovation][3]* program.
+
+<img width="200" alt="" src="https://tools.diehauswirtschaft.at/public-static-files/logos/klien-poweredby.jpg">
 
 ## Usage
 
