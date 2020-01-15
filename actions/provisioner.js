@@ -101,7 +101,11 @@ async function createUser(nextcloudUrl, username, password, user) {
     console.log(`  Updating user profile settings for ${user.userid} ...`);
     for (const key of USER_DATA_KEYS) {
         if (user.hasOwnProperty(key) && user[key] !== "" && user[key] !== null) {
-            await updateUserData(user.userid, key, user[key]);
+            try {
+                await updateUserData(user.userid, key, user[key]);
+            } catch (e) {
+                console.error(e);
+            }
         }
     }
 }
