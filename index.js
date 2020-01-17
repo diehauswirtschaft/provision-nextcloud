@@ -9,6 +9,10 @@ const inquirer = require("inquirer");
 const program = require("commander");
 program.version("1.0.0");
 
+/**
+ * Reads the given file and parses it as JSON. We could use some JSON schema validation here,
+ * but to avoid dependencies we treat schema validation negligible.
+ */
 function readJSON(path) {
     try {
         const users = JSON.parse(fs.readFileSync(path));
@@ -23,6 +27,10 @@ function readJSON(path) {
     }
 }
 
+/**
+ * Prompt for the Nextcloud user credentials.
+ * @returns {Promise<*>}
+ */
 async function getCredentials() {
     return await inquirer
         .prompt([
@@ -40,6 +48,9 @@ async function getCredentials() {
         ]);
 }
 
+/**
+ * Adds new users to the Nextcloud instance.
+ */
 program.command("add <users.json> <nextcloud-url>")
     .option("-d, --dry-run", "Dry run without sending out requests to your Nextcloud instance")
     .action(function (userJson, nextcloudUrl, cmd) {
@@ -58,6 +69,9 @@ program.command("add <users.json> <nextcloud-url>")
             });
     });
 
+/**
+ * Sends out welcome mails.
+ */
 program.command("welcome <users.json> <nextcloud-url>")
     .option("-d, --dry-run", "Dry run without sending out requests to your Nextcloud instance")
     .action(function (userJson, nextcloudUrl, cmd) {
@@ -76,6 +90,9 @@ program.command("welcome <users.json> <nextcloud-url>")
             });
     });
 
+/**
+ * Prints the setting commands to the console.
+ */
 program.command("setting <users.json> <key> <value>")
     .action(function (userJson, key, value) {
         readJSON(userJson)
