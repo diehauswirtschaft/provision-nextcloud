@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/diehauswirtschaft/provision-nextcloud#readme",
   "dependencies": {
-    "axios": "^0.21.2",
+    "axios": "^1.6.0",
     "commander": "^2.19.0"
   }
 }
